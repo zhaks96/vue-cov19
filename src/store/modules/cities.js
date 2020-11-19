@@ -35,7 +35,7 @@ export default {
         })
         .then(async (response) => {
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           commit("FETCH_CITIES", data.cities);
         })
         .catch((error) => {

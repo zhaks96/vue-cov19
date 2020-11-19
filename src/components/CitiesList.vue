@@ -108,7 +108,7 @@ export default {
       this.cityChange = { id: 0 };
     },
     deleteCityId(id) {
-      this.deleteCity(id);
+      if(id) this.deleteCity(id);
     },
   },
 };

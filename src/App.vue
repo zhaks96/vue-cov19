@@ -135,7 +135,7 @@ export default {
   },
   created() {
     this.fetchCities();
-  },
+  }
 };
 </script>
 
