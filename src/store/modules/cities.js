@@ -29,7 +29,10 @@ export default {
   actions: {
     fetchCities({ commit }) {
       const headers = { "Content-Type": "application/json" };
-      fetch("https://api.covid19live.kz/v1/status", { headers })
+      fetch("https://api.covid19live.kz/v1/status", { 
+          method: 'GET',
+          headers 
+        })
         .then(async (response) => {
           const data = await response.json();
           console.log(data);

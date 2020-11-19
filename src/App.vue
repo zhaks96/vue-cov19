@@ -12,14 +12,14 @@
           <th scope="col">Действие</th>
         </tr>
       </thead>
-      <tbody>
+      <sequential-entrance tag="tbody" fromBottom delay="10">
         <cities-list
           v-for="(city, index) in paginatedCities"
           :key="city.id"
           :city="city"
           :index="index"
         />
-      </tbody>
+      </sequential-entrance>
     </table>
 
     <div class="section__pagination">

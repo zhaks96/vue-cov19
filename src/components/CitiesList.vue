@@ -1,5 +1,5 @@
 <template>
-  <tr :style="{ background: getBg(city.infected) }">
+  <tr :style="{ background: getBg(city.infected), color: colorRow }">
     <th>{{ city.name }}</th>
     <td>{{ city.recovered }}</td>
     <td v-if="cityChange.id == 0">{{ city.infected }}</td>
@@ -15,7 +15,7 @@
         <div class="mt-2">
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary mr-3"
             @click.prevent="updateInfect(city)"
           >
             сохранить
@@ -27,10 +27,19 @@
       </div>
     </td>
     <td>{{ city.deaths }}</td>
-    <td> 
-        <a :href="'https://yandex.ru/maps/?pt=' + city.longitude + ',' + city.latitude +'&z=17&l=map'" 
+    <td>
+      <a
+        :href="
+          'https://yandex.ru/maps/?pt=' +
+            city.longitude +
+            ',' +
+            city.latitude +
+            '&z=17&l=map'
+        "
         target="_blank"
-        style="color: #ffffff">открыть карту</a>
+        :style="{ color: colorRow }"
+        >открыть карту</a
+      >
     </td>
     <td>
       <div class="buttons">
@@ -56,22 +65,26 @@ export default {
         return {};
       },
     },
-    index:{
-        type: Number
+    index: {
+      type: Number,
     },
   },
   data() {
     return {
       cityChange: { id: 0 },
       infectedVal: 0,
+      colorRow: "#ffffff",
     };
   },
   computed: {
     getBg() {
       return function(countInfected) {
+        this.colorRow = "#ffffff";
         if (countInfected < 1000) return "blue";
-        else if (countInfected < 5000) return "cyan";
-        else if (countInfected < 10000) return "indigo";
+        else if (countInfected < 5000) {
+          this.colorRow = "#000000";
+          return "cyan";
+        } else if (countInfected < 10000) return "indigo";
         else return "red";
       };
     },
@@ -82,7 +95,7 @@ export default {
       if (city) {
         this.updateInfected({
           id: city.id,
-          infected: parseInt(this.infectedVal)
+          infected: parseInt(this.infectedVal),
         });
         this.cityChange = { id: 0 };
       }

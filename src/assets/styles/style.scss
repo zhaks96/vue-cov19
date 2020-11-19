@@ -6,18 +6,19 @@
   align-items: center;
   padding: 0 16px;
   button {
-    min-width: 42px;
+    width: 42px;
     height: 42px;
-    background: #5a98d0;
-    color: #ffffff;
-    border-radius: 10px;
-    border: 1px solid #5a98d0;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
     margin-right: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: none;
     &:hover {
-      box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.5);
+      box-shadow: 0px 5px 18px rgba(82, 202, 182, 0.78);
     }
   }
 }
@@ -37,6 +38,8 @@
     margin-right: 10px;
     min-width: 40px;
     text-align: center;
+    transition: 0.5s;
+    border-radius: 32px;
     &:hover {
       background: #000000;
       color: #ffffff;
@@ -51,15 +54,15 @@
 }
 
 .search {
-    width: 420px;
-    height: 56px;
-    background: #f4f4f4;
-    border-radius: 10px;
-    padding: 0 22px;
-    border: 1px solid #f4f4f4;
-    margin-bottom: 32px;
-    font-family: Gilroy;
-    font-size: 16px;
-    line-height: 19px;
-    color: #1f3f68;
-  }
+  width: 420px;
+  height: 56px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  padding: 0 22px;
+  border: 1px solid #f4f4f4;
+  margin-bottom: 32px;
+  font-family: Gilroy;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1f3f68;
+}
